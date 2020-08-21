@@ -1,0 +1,24 @@
+@import "~ant-design-vue/dist/antd.less";
+
+@import "./theme_param.less";
+
+.ant-menu-inline,.ant-menu-vertical {
+  border-width: 0;
+}
+.ant-menu-horizontal {
+  border-bottom-width: 0;
+}
+.ant-menu-horizontal.ant-menu-sub, .ant-menu-vertical.ant-menu-sub, .ant-menu-vertical-left.ant-menu-sub, .ant-menu-vertical-right.ant-menu-sub{
+  min-width: 80px;
+}
+.ant-cascader-menu{
+  height: auto;
+  max-height: 240px;
+  min-height: 32px;
+}
+.ant-table-body{
+  overflow-x: auto !important;
+}
+.ant-table-fixed-left,.ant-table-fixed-right{
+  z-index: 1;
+}
