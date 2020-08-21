@@ -16,6 +16,7 @@ import BasicSetting from './views/management/Setting'
 import OtherSetting from './views/management/Other'
 import CenterLayout from './views/center/Layout'
 import Personal from './views/center/Personal'
+import Security from './views/center/Security'
 import Information from './views/center/Information'
 
 Vue.use(VueRouter)
@@ -147,6 +148,15 @@ const routerMap = [
         component: Personal,
         meta: {
           title: '个人资料',
+          auth: true
+        }
+      },
+      {
+        path: "/security",
+        name: "security",
+        component: Security,
+        meta: {
+          title: '账号密码',
           auth: true
         }
       },

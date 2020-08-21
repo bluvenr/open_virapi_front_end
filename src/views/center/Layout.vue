@@ -19,6 +19,13 @@
           </router-link>
         </a-menu-item>
 
+        <a-menu-item key="security">
+          <router-link :to="{name:'security'}">
+            <a-icon type="safety-certificate" />
+            <span>账号密码</span>
+          </router-link>
+        </a-menu-item>
+
         <a-menu-item key="information">
           <router-link :to="{name:'information'}">
             <!-- <a-badge count="5" dot> -->
@@ -47,13 +54,13 @@ import Footer from "@/components/Footer.vue";
 
 export default {
   components: {
-    Footer
+    Footer,
   },
   data() {
     return {
       collapsed: false,
       warningMsg: null,
-      openMenuKeys: []
+      openMenuKeys: [],
     };
   },
   watch: {
@@ -61,9 +68,9 @@ export default {
       this.openMenuKeys = to.meta.subKey ? [to.meta.subKey] : [];
 
       this._initLoad();
-    }
+    },
   },
-  created: function() {
+  created: function () {
     this.openMenuKeys = this.$route.meta.subKey
       ? [this.$route.meta.subKey]
       : [];
@@ -73,8 +80,8 @@ export default {
   methods: {
     _initLoad() {
       //
-    }
-  }
+    },
+  },
 };
 </script>
 

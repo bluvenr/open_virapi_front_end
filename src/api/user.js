@@ -67,3 +67,12 @@ export function updateUserDataRequest(uid, data) {
         data: data
     });
 }
+
+// 更新用户登录密码
+export function updateUserPwdRequest(data) {
+    return request({
+        url: "/user_pwd",
+        method: "put",
+        data: data
+    });
+}
