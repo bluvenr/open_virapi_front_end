@@ -47,7 +47,7 @@
         <span>
           Copyright © 2019{{ newYear > 2019 ? '-'+newYear : '' }}
           <a
-            href="https://github.com/bluvenr/open_virapi"
+            href="https://github.com/bluvenr"
             target="_blank"
           >Bluven</a>. All Rights Reserved.
         </span>

@@ -57,6 +57,7 @@ VUE_APP_API_REQUEST_URI=/api/
 
 
 ## 若您觉得VirAPI有帮到您，请赞助一下以示支持哦~
+😁请备注`virapi`。
 
 | <div style="text-align:center;color:#019fe8;">支付宝赞助</div> | <div style="text-align:center;color:#22ab39;">微信赞助</div> |
 | --------- | --------- |

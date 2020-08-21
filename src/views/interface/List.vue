@@ -92,7 +92,7 @@
         </div>
       </div>
 
-      <div class="v-api-r-link">
+      <div class="v-api-r-link" :affix="false">
         <a-anchor :offsetTop="60">
           <a-anchor-link
             v-for="(item, index) in apiList"
