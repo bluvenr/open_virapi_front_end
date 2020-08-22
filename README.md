@@ -36,7 +36,7 @@
 
 默认`.env`文件内容为：
 
-```
+``` bash
 # 环境配置
 VUE_APP_REQUEST_URL=/ajax
 
@@ -55,13 +55,15 @@ VUE_APP_API_REQUEST_URI=/api/
 
 若是要打包到真实环境，则可复制`.env`文件并重命名为`.env.production.local`，这样当执行`npm build`，即进行打包时，会读取该文件的配置信息。
 
+<br/>
+<br/>
 
 ## 若您觉得VirAPI有帮到您，请赞助一下以示支持哦~
 😁请备注`virapi`。
 
 | <div style="text-align:center;color:#019fe8;">支付宝赞助</div> | <div style="text-align:center;color:#22ab39;">微信赞助</div> |
 | --------- | --------- |
-| <img src="https://images.gitee.com/uploads/images/2020/0821/230258_d7ecb18b_863133.png" alt="支付宝赞助" style="width:160px;"> | <img src="https://images.gitee.com/uploads/images/2020/0821/230314_08ec5aad_863133.png" alt="微信赞助" style="width:160px;"> |
+| <img src="https://images.gitee.com/uploads/images/2020/0821/230258_d7ecb18b_863133.png" alt="支付宝赞助" width="160px"> | <img src="https://images.gitee.com/uploads/images/2020/0821/230314_08ec5aad_863133.png" alt="微信赞助" width="160px"> |
 
 <br/>
 <br/>
