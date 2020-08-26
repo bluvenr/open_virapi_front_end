@@ -16,7 +16,32 @@
 ·
 [控制台](http://console.virapi.com/?_from=github)
 
+[![npm-current](https://img.shields.io/badge/npm-%5E1.6.5-brightgreen)](https://nodejs.org/en/)
+[![vue-current](https://img.shields.io/badge/vue-%5E2.6.6-brightgreen)](https://cn.vuejs.org/)
+[![Ant Design of Vue-current](https://img.shields.io/badge/Ant%20Design%20of%20Vue-%5E1.4.10-brightgreen)](https://www.antdv.com/docs/vue/introduce-cn/)
+[![license-current](https://img.shields.io/badge/license-Apache--2.0-blue)](http://www.apache.org/licenses/LICENSE-2.0.html)
+
 </div>
+<br/>
+
+## VirAPI简介
+
+VirAPI（Virtual API）—— 在线虚拟数据云接口平台；非侵入式虚拟数据在线请求响应生成接口，支持MockJs语法，请求即可得自定义规则的响应数据；帮助你本地测试或演示项目之用。
+
+通过VirAPI你可以通过远程接口URL访问直接获得自定义的随机虚拟响应数据，若是只想做前端客户端（App、小程序、网页等）的功能演示或业务模拟测试，而又不想耗费时间精力去等待后端接口的开发完成，甚至不想搭建后端服务逻辑，那么VirAPI会是你的好帮手。
+
+**VirAPI的功能特色：**
++ 内嵌Mock语法支持，可快速定义虚拟数据结构
++ 可视化操作，可视即可得，低门槛快速上手
++ 支持多种请求类型（GET、POST、PUT、DELETE）
++ 接口请求权限验证，阻止非法请求虚拟接口
++ 接口项目应用化管理，还原实际开发场景
++ 虚拟接口请求日志数据查看及统计
++ 提供应用接口文档管理，高效管理接口及项目计划
++ 零污染无侵入，而无需在项目代码中引入Mock包
++ 免费开源，可独立部署搭建
++ ......
+
 <br/>
 
 ## VirAPI开源版--前端代码仓库
