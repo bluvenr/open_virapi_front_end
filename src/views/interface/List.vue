@@ -92,7 +92,7 @@
         </div>
       </div>
 
-      <div class="v-api-r-link">
+      <div class="v-api-r-link" :affix="false" @click="handleClick">
         <a-anchor :offsetTop="60">
           <a-anchor-link
             v-for="(item, index) in apiList"
@@ -112,25 +112,25 @@ import { getAppBaseInfoRequest } from "@/api/application.js";
 import {
   getApisRequest,
   updateApiRequest,
-  delApiRequest
+  delApiRequest,
 } from "@/api/interface.js";
 
 export default {
   components: {
-    ApiItem
+    ApiItem,
   },
   data() {
     return {
       appInfo: {
         icon: null,
         name: "",
-        slug: null
+        slug: null,
       },
       apiCountMap: {
         post: 0,
         get: 0,
         put: 0,
-        delete: 0
+        delete: 0,
       },
       appApis: [],
       apiList: [],
@@ -139,9 +139,9 @@ export default {
       queryOptions: {
         kw: "",
         sort: "create_desc",
-        method: "ALL"
+        method: "ALL",
       },
-      hasNotSaveMap: {}
+      hasNotSaveMap: {},
     };
   },
   watch: {
@@ -150,19 +150,19 @@ export default {
         this.pageLoading = true;
         this._initLoad();
       }
-    }
+    },
   },
-  created: function() {
+  created: function () {
     this._initLoad();
   },
   mounted() {},
   methods: {
     _initLoad() {
       getAppBaseInfoRequest(this.$route.params.slug)
-        .then(res => {
+        .then((res) => {
           this.appInfo = res.data;
         })
-        .catch(err => {
+        .catch((err) => {
           this.$message.error(err.message);
         });
 
@@ -170,7 +170,7 @@ export default {
     },
     _loadApi() {
       getApisRequest({ app_slug: this.$route.params.slug })
-        .then(res => {
+        .then((res) => {
           this.appApis = res.data.list;
           this.maxApiCount = res.data.max_api_count;
 
@@ -179,7 +179,7 @@ export default {
 
           this.pageLoading = false;
         })
-        .catch(err => {
+        .catch((err) => {
           this.$message.error(err.message);
         });
     },
@@ -188,10 +188,10 @@ export default {
         post: 0,
         get: 0,
         put: 0,
-        delete: 0
+        delete: 0,
       };
 
-      this.appApis.forEach(o => {
+      this.appApis.forEach((o) => {
         apiCountMap[o.method.toLowerCase()]++;
       });
       this.apiCountMap = apiCountMap;
@@ -201,14 +201,14 @@ export default {
       const method = this.queryOptions.method;
 
       this.apiList = this.appApis
-        .filter(o => {
+        .filter((o) => {
           if (kw) {
             return o.name.indexOf(kw) > -1 || o.describe.indexOf(kw) > -1;
           } else {
             return true;
           }
         })
-        .filter(o => {
+        .filter((o) => {
           if (method !== "ALL") {
             return o.method == method;
           } else {
@@ -239,14 +239,14 @@ export default {
     },
     delApiHandle(api_id) {
       delApiRequest(api_id)
-        .then(res => {
-          this.appApis = this.appApis.filter(o => o._id != api_id);
+        .then((res) => {
+          this.appApis = this.appApis.filter((o) => o._id != api_id);
 
           this.computeApiCount();
           this.filterSortApiList();
 
           let apps = [];
-          this.$store.getters.myApps.filter(o => {
+          this.$store.getters.myApps.filter((o) => {
             if (o.slug == this.appSlug) {
               o.api_count -= 1;
             }
@@ -256,7 +256,7 @@ export default {
 
           this.$message.success("接口删除成功");
         })
-        .catch(err => {
+        .catch((err) => {
           this.$message.error(err.message);
         });
     },
@@ -265,7 +265,7 @@ export default {
 
       refApi.changeSubmitStatus(true);
       updateApiRequest(api_id, data)
-        .then(res => {
+        .then((res) => {
           this.$message.success("接口更新成功");
 
           for (let index = 0; index < this.appApis.length; index++) {
@@ -274,7 +274,7 @@ export default {
               this.appApis.splice(index, 1, {
                 ...o,
                 ...data,
-                succeed_response: res.data.succeed_response || null
+                succeed_response: res.data.succeed_response || null,
               });
               break;
             }
@@ -289,17 +289,20 @@ export default {
             refApi.init();
           });
         })
-        .catch(err => {
+        .catch((err) => {
           refApi.changeSubmitStatus(false);
           this.$message.error(err.message);
         });
     },
     changeEditStatusHandle(api_id, status) {
       this.hasNotSaveMap[api_id] = status;
-    }
+    },
+    handleClick(e) {
+      e.preventDefault();
+    },
   },
   beforeRouteLeave(to, from, next) {
-    if (Object.values(this.hasNotSaveMap).filter(v => !v).length > 0) {
+    if (Object.values(this.hasNotSaveMap).filter((v) => !v).length > 0) {
       this.$confirm({
         title: "温馨提示",
         content: "当前页面数据尚未保存，确定要离开该页面？",
@@ -310,12 +313,12 @@ export default {
         },
         onCancel() {
           next(false);
-        }
+        },
       });
     } else {
       next();
     }
-  }
+  },
 };
 </script>
 
