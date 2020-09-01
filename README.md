@@ -55,7 +55,7 @@ VirAPI（Virtual API）—— 在线虚拟数据云接口平台；非侵入式�
 
 本地测试运行，则请执行：`npm serve`
 
-打包正式环境，请执行：`npm build`，且打包后的代码生成在`dist`目录下，若需要替换[后端代码](https://github.com/bluvenr/open_virapi)，请将该目录所有文件替换到您的后端代码项目下的`/app/public/console/`目录下。
+打包正式环境，请执行：`npm build`，且打包后的代码生成在`dist`目录下，若需要替换[后端代码](https://github.com/bluvenr/open_virapi)，请将该目录所有文件替换到你的后端代码项目下的`/app/public/console/`目录下。
 
 ### .env 文件相关
 
@@ -72,9 +72,9 @@ VUE_APP_VERSION=0.0.1
 VUE_APP_API_REQUEST_URI=/api/
 ```
 
-其中，`VUE_APP_REQUEST_URL`变量即为对应后端服务接口的地址，默认`/ajax`，即表示为当前域名下的`ajax`地址。您可以根据实际情况进行调整。
+其中，`VUE_APP_REQUEST_URL`变量即为对应后端服务接口的地址，默认`/ajax`，即表示为当前域名下的`ajax`地址。你可以根据实际情况进行调整。
 
-`VUE_APP_API_REQUEST_URI`为当前项目所生成的虚拟数据接口的地址域名，默认`/api/`表示所创建的虚拟数据接口的请求域名为当前域名的`api`路径下。您可以根据实际情况进行调整。
+`VUE_APP_API_REQUEST_URI`为当前项目所生成的虚拟数据接口的地址域名，默认`/api/`表示所创建的虚拟数据接口的请求域名为当前域名的`api`路径下。你可以根据实际情况进行调整。
 
 建议若是本地测试，可复制`.env`文件并重命名为`.env.development.local`，这样当执行`npm serve`，即进行本地测试运行时，会读取该文件的配置信息。
 
@@ -83,7 +83,7 @@ VUE_APP_API_REQUEST_URI=/api/
 <br/>
 <br/>
 
-## 若您觉得VirAPI有帮到您，请赞助一下以示支持哦~
+## 若觉得VirAPI有帮到你，请赞助一下以示支持哦~
 😁请备注`virapi`。
 
 | <div style="text-align:center;color:#019fe8;">支付宝赞助</div> | <div style="text-align:center;color:#22ab39;">微信赞助</div> |
