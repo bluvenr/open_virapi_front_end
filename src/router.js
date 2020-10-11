@@ -14,6 +14,7 @@ import AppStatistics from './views/data_analysis/Statistics'
 import AppLog from './views/data_analysis/Log'
 import BasicSetting from './views/management/Setting'
 import OtherSetting from './views/management/Other'
+import Export from './views/management/Export'
 import CenterLayout from './views/center/Layout'
 import Personal from './views/center/Personal'
 import Security from './views/center/Security'
@@ -132,6 +133,16 @@ const routerMap = [
         component: OtherSetting,
         meta: {
           title: '高级操作',
+          subKey: 'management',
+          auth: true
+        }
+      },
+      {
+        path: "export",
+        name: "exportApp",
+        component: Export,
+        meta: {
+          title: '导出接口文档',
           subKey: 'management',
           auth: true
         }
