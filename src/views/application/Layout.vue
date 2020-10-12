@@ -21,7 +21,9 @@
               alt="app icon"
               v-if="item.icon"
             />
-            <i class="v-app-icon-text v-app-m-icon" v-else>{{ item.name.substr(0, 1) }}</i>
+            <i class="v-app-icon-text v-app-m-icon" v-else>{{
+              item.name.substr(0, 1)
+            }}</i>
 
             <span class="v-app-m-name">{{ item.name }}</span>
           </a-select-option>
@@ -35,31 +37,44 @@
         mode="inline"
       >
         <a-menu-item key="appDetail">
-          <router-link :to="{name:'appDetail', params:{slug:$route.params.slug}}">
+          <router-link
+            :to="{ name: 'appDetail', params: { slug: $route.params.slug } }"
+          >
             <a-icon type="home" />
             <span>应用信息</span>
           </router-link>
         </a-menu-item>
         <a-menu-item key="apiList">
-          <router-link :to="{name:'apiList', params:{slug:$route.params.slug}}">
+          <router-link
+            :to="{ name: 'apiList', params: { slug: $route.params.slug } }"
+          >
             <a-icon type="api" />
             <span>所有接口</span>
           </router-link>
         </a-menu-item>
         <a-menu-item key="apiDebug">
-          <router-link :to="{name:'apiDebug', params:{slug:$route.params.slug}}">
+          <router-link
+            :to="{ name: 'apiDebug', params: { slug: $route.params.slug } }"
+          >
             <a-icon type="code" />
             <span>接口测试</span>
           </router-link>
         </a-menu-item>
         <a-menu-item key="appLog">
-          <router-link :to="{name:'appLog', params:{slug:$route.params.slug}}">
+          <router-link
+            :to="{ name: 'appLog', params: { slug: $route.params.slug } }"
+          >
             <a-icon type="file" />
             <span>请求日志</span>
           </router-link>
         </a-menu-item>
         <a-menu-item key="appStatistics">
-          <router-link :to="{name:'appStatistics', params:{slug:$route.params.slug}}">
+          <router-link
+            :to="{
+              name: 'appStatistics',
+              params: { slug: $route.params.slug },
+            }"
+          >
             <a-icon type="line-chart" />
             <span>数据统计</span>
           </router-link>
@@ -70,22 +85,44 @@
             <span>管理</span>
           </span>
           <a-menu-item key="basicSetting">
-            <router-link :to="{name:'basicSetting', params:{slug:$route.params.slug}}">
+            <router-link
+              :to="{
+                name: 'basicSetting',
+                params: { slug: $route.params.slug },
+              }"
+            >
               <span>应用设置</span>
             </router-link>
           </a-menu-item>
           <a-menu-item key="otherSetting">
-            <router-link :to="{name:'otherSetting', params:{slug:$route.params.slug}}">
+            <router-link
+              :to="{
+                name: 'otherSetting',
+                params: { slug: $route.params.slug },
+              }"
+            >
               <span>高级操作</span>
             </router-link>
           </a-menu-item>
-          <!-- <a-menu-item key="exportApp">应用数据导出</a-menu-item> -->
+          <a-menu-item key="exportApp">
+            <router-link
+              :to="{ name: 'exportApp', params: { slug: $route.params.slug } }"
+            >
+              <span>导出接口文档</span>
+            </router-link>
+          </a-menu-item>
         </a-sub-menu>
       </a-menu>
     </a-layout-sider>
 
-    <a-layout :style="{ marginLeft: collapsed ? '80px' : '200px'}">
-      <a-alert v-if="warningMsg" :message="warningMsg" type="warning" closable showIcon />
+    <a-layout :style="{ marginLeft: collapsed ? '80px' : '200px' }">
+      <a-alert
+        v-if="warningMsg"
+        :message="warningMsg"
+        type="warning"
+        closable
+        showIcon
+      />
       <a-breadcrumb>
         <a-breadcrumb-item>
           <router-link to="/">
@@ -96,13 +133,13 @@
           <router-link to="/apps">我的应用</router-link>
         </a-breadcrumb-item>
         <a-breadcrumb-item v-if="$route.params.slug">
-          <router-link
-            :to="'/app/'+$route.params.slug"
-          >{{ nowApplication ? nowApplication.name : $route.params.slug }}</router-link>
+          <router-link :to="'/app/' + $route.params.slug">{{
+            nowApplication ? nowApplication.name : $route.params.slug
+          }}</router-link>
         </a-breadcrumb-item>
-        <a-breadcrumb-item
-          v-if="$route.params.slug && $route.meta.title"
-        >{{ $route.meta.title || '--' }}</a-breadcrumb-item>
+        <a-breadcrumb-item v-if="$route.params.slug && $route.meta.title">{{
+          $route.meta.title || "--"
+        }}</a-breadcrumb-item>
       </a-breadcrumb>
 
       <a-layout-content>
@@ -119,14 +156,14 @@ import Footer from "@/components/Footer.vue";
 
 export default {
   components: {
-    Footer
+    Footer,
   },
   data() {
     return {
       collapsed: false,
       warningMsg: null,
       openMenuKeys: [],
-      nowApplication: null
+      nowApplication: null,
     };
   },
   watch: {
@@ -134,9 +171,9 @@ export default {
       this.openMenuKeys = to.meta.subKey ? [to.meta.subKey] : [];
 
       this._initLoad();
-    }
+    },
   },
-  created: function() {
+  created: function () {
     this.openMenuKeys = this.$route.meta.subKey
       ? [this.$route.meta.subKey]
       : [];
@@ -147,7 +184,7 @@ export default {
     _initLoad() {
       var _apps = this.$store.getters.myApps
         ? this.$store.getters.myApps.filter(
-            o => o.slug == this.$route.params.slug
+            (o) => o.slug == this.$route.params.slug
           )
         : null;
       this.nowApplication = _apps && _apps.length > 0 ? _apps[0] : null;
@@ -161,8 +198,8 @@ export default {
           .toLowerCase()
           .indexOf(input.toLowerCase()) >= 0
       );
-    }
-  }
+    },
+  },
 };
 </script>
 
